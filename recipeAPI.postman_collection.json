@@ -1,0 +1,158 @@
+{
+	"variables": [],
+	"info": {
+		"name": "recipeAPI",
+		"_postman_id": "809af820-3be0-3738-c7df-5188c7821252",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Recipe",
+			"request": {
+				"url": "http://localhost:8080/addRecipe",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "p",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"recipeName\": \"Koramenu\",\n    \"category\": \"Fish\",\n    \"instructions\":\"Gas\",\n    \"servings\": 1,\n    \"ingredients\": [{\n        \"name\": \"Oil\"\n    },{\n        \"name\": \"pepper\"\n    }, {\n        \"name\": \"ginger\"\n    }]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "remove Recipe By Id",
+			"request": {
+				"url": "http://localhost:8080/removeByName/Salmon",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update Recipe By Name Copy",
+			"request": {
+				"url": "http://localhost:8080/updateRecipeByName",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"recipeId\": \"608ce3fd-29bc-467a-94d1-9a6775e35373\",\n    \"recipeName\": \"Salmon Fry\",\n    \"category\": \"Fish\",\n    \"instructions\": \"Oven\",\n    \"servings\": \"1\",\n    \"ingredients\": [\n        {\n            \"ingredientId\": \"4278f475-4522-453c-a395-dd2f03b4d3ea\",\n            \"name\": \"salmon\"\n        },\n        {\n            \"ingredientId\": \"250dc44a-c4aa-451e-a149-621db0827ae5\",\n            \"name\": \"Salt\"\n        },\n        {\n            \"ingredientId\": \"b72f72d4-7427-43fc-9e95-daadf742853b\",\n            \"name\": \"Oil\"\n        },\n        {\n            \"ingredientId\": \"389c8c92-45e1-4f5e-819b-01264bbcaecd\",\n            \"name\": \"pepper\"\n        },\n        {\n            \"ingredientId\": \"02fafbae-0cdb-40a4-abad-0c2467fd05cd\",\n            \"name\": \"ginger\"\n        }\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search Criteria based on filter",
+			"request": {
+				"url": "http://localhost:8080/searchRecipesByIngredients",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"instructions\":\"GAS\",\n    \"servings\":1,\n    \"category\":\"Fish\",\n    \"ingredients\": {\"salt\": true}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get AllRecipes",
+			"request": {
+				"url": "http://localhost:8080/getAllRecipes",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "categoryType",
+							"value": "Veg",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recipes by category",
+			"request": {
+				"url": "http://localhost:8080/getRecipesByCategory",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "categoryType",
+							"value": "Chicken",
+							"type": "default"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
